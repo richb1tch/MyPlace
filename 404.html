@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 &bull; Lost in the Forest &bull; Junayed's Corner</title>
+  <meta name="description" content="Oops, you've wandered off the trail in Junayed's digital corner.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative grid & ambient glow -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <div class="site-branding">
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.75rem;">
+          <span class="pixel-star">✦</span>
+          <span class="brand-text">junayed.space</span>
+        </a>
+      </div>
+      <div class="top-actions">
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="error-page-container">
+      
+      <!-- Lost Mochi SVG Illustration with Lantern -->
+      <div class="error-visual">
+        <svg viewBox="0 0 160 140" width="160" height="140" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ambient Lantern Glow -->
+          <circle cx="125" cy="85" r="30" fill="rgba(232, 188, 124, 0.25)" filter="blur(6px)" />
+          
+          <!-- Lantern -->
+          <line x1="125" y1="50" x2="125" y2="70" stroke="#7e7a70" stroke-width="2" />
+          <rect x="115" y="70" width="20" height="25" rx="3" fill="#3b2c20" stroke="#e8bc7c" stroke-width="2" />
+          <circle cx="125" cy="82" r="5" fill="#fec358" />
+          
+          <!-- Mochi Ears -->
+          <polygon points="40,55 48,32 58,52" fill="#fff7ed" stroke="#45372b" stroke-width="2.5" />
+          <polygon points="100,55 92,32 82,52" fill="#fff7ed" stroke="#45372b" stroke-width="2.5" />
+          <polygon points="43,52 49,36 56,50" fill="#fbb6ce" />
+          <polygon points="97,52 91,36 84,50" fill="#fbb6ce" />
+          
+          <!-- Mochi Body -->
+          <ellipse cx="70" cy="76" rx="42" ry="30" fill="#fff7ed" stroke="#45372b" stroke-width="2.5" />
+          
+          <!-- Cheeks -->
+          <circle cx="44" cy="82" r="5" fill="#fda4af" opacity="0.65" />
+          <circle cx="96" cy="82" r="5" fill="#fda4af" opacity="0.65" />
+          
+          <!-- Curious / Puzzled Eyes -->
+          <ellipse cx="56" cy="75" rx="3.5" ry="4.5" fill="#261c14" />
+          <ellipse cx="84" cy="75" rx="3.5" ry="4.5" fill="#261c14" />
+          <circle cx="58" cy="73" r="1.5" fill="#ffffff" />
+          <circle cx="86" cy="73" r="1.5" fill="#ffffff" />
+          
+          <!-- Mouth (curious 'o') -->
+          <ellipse cx="70" cy="82" rx="2.5" ry="3.5" fill="none" stroke="#3b2c20" stroke-width="2" />
+          
+          <!-- Paws -->
+          <ellipse cx="55" cy="102" rx="7" ry="4" fill="#fff7ed" stroke="#45372b" stroke-width="2" />
+          <ellipse cx="85" cy="102" rx="7" ry="4" fill="#fff7ed" stroke="#45372b" stroke-width="2" />
+        </svg>
+      </div>
+
+      <div class="error-badge">404 &bull; PAGE NOT FOUND</div>
+      <h1 class="error-title">You've wandered off the trail.</h1>
+      <p class="error-desc">
+        There are no sourdough loaves or railway maps out here—just misty trees and Mochi holding a lantern. 
+        Let's get you back on track!
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="fun-btn" style="text-decoration: none; padding: 0.65rem 1.25rem;">
+          <span>🏠 Return to Homepage</span>
+        </a>
+        <a href="index.html#workshop" class="arcade-action-btn" style="text-decoration: none; padding: 0.65rem 1.25rem;">
+          <span>🔨 Explore The Workshop</span>
+        </a>
+        <a href="index.html#game-room" class="fun-btn" style="text-decoration: none; padding: 0.65rem 1.25rem; background-color: transparent;">
+          <span>🎮 Play Mini-Game</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Theme Switcher for 404
+    const htmlRoot = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('junayed-theme') || 'dark';
+    htmlRoot.setAttribute('data-theme', savedTheme);
+
+    themeToggle?.addEventListener('click', () => {
+      const current = htmlRoot.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      htmlRoot.setAttribute('data-theme', next);
+      localStorage.setItem('junayed-theme', next);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junayed's Corner &bull; Crafting, Baking &amp; Exploring</title>
+  <meta name="description" content="Junayed's personal digital garden &bull; web experiments, pastry notes, game reviews, and random musings.">
+  
+  <!-- Fonts: Fraunces (warm editorial serif) & Space Grotesk / Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background decorative grid & ambient glow -->
+  <div class="ambient-glow glow-top" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+  <!-- Quick Top Utility Bar -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <div class="site-branding">
+        <span class="pixel-star" id="secretTrigger" title="A curious star... maybe click it?" role="button" tabindex="0">✦</span>
+        <span class="brand-text">junayed.space</span>
+        <span class="status-indicator" id="headerStatusBadge" title="Status: Online & tinkering (Click me for a thought!)" role="button" tabindex="0" style="cursor: pointer;">
+          <span class="pulse-dot"></span> tinkering
+        </span>
+      </div>
+
+      <div class="top-actions">
+        <!-- "I'm bored" button -->
+        <button id="boredBtn" class="fun-btn" title="Jump to something random!">
+          <span class="btn-icon">🎲</span>
+          <span class="btn-text">I'm bored</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
+          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <!-- HERO / INTRO SECTION -->
+    <section id="home" class="hero-section">
+      <div class="hero-header">
+        <div class="badge-tag">☕ Digital Garden &amp; Workshop</div>
+        <h1 class="hero-title">
+          Hey, I'm <span class="highlight-name">Junayed</span>.
+        </h1>
+        <p class="hero-subtitle">
+          I'm making things, learning things, and occasionally burning things in the oven.
+        </p>
+      </div>
+
+      <div class="hero-bio-card">
+        <p>
+          I'm a Bangladeshi guy navigating technology, code, business, games, photography, and pastry arts. 
+          Currently learning web development, building experiments, and enjoying the slightly chaotic, handmade corners of the internet.
+        </p>
+        <div class="location-stamp">
+          <span>📍 Dhaka, Bangladesh</span>
+          <span>🥐 Pastry Apprentice</span>
+          <span>💻 Web Explorer</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: NOW (/now page inspired) -->
+    <section id="now" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">01 // PRESENT FOCUS</div>
+        <h2 class="section-title">Now 🧭</h2>
+        <p class="section-desc">What I'm focused on right now, inspired by Derek Sivers' /now page movement.</p>
+      </div>
+
+      <div class="now-manifesto-card">
+        <div class="now-manifesto-header">
+          <span class="now-location-badge">📍 Dhaka &bull; Local time updated</span>
+          <span class="now-timestamp" id="nowLastUpdated">Fall 2026</span>
+        </div>
+        <p class="now-quote">
+          "A living broadcast of where my attention is flowing this season—no corporate milestones, just genuine curiosities."
+        </p>
+      </div>
+
+      <!-- 4 Pillars: Learning, Building, Playing, Exploring -->
+      <div class="now-grid" id="nowPillarsContainer">
+        <!-- Injected via JavaScript from NOW_PILLARS object -->
+      </div>
+    </section>
+
+    <!-- SECTION: THE WORKSHOP (Projects, Experiments & Unfinished Ideas) -->
+    <section id="workshop" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">02 // CODE &amp; LAB</div>
+        <h2 class="section-title">The Workshop 🔨</h2>
+        <p class="section-desc">Projects, prototypes, and half-baked ideas running on curiosity and green tea.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-pill active" data-filter="all">All Projects</button>
+        <button class="filter-pill" data-filter="in-progress">In Progress</button>
+        <button class="filter-pill" data-filter="prototype">Prototypes</button>
+        <button class="filter-pill" data-filter="experiment">Experiments</button>
+        <button class="filter-pill" data-filter="idea">Unfinished Ideas</button>
+      </div>
+
+      <div class="projects-grid" id="workshopGrid">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: THE NOTEBOOK (Thoughts & Observations) -->
+    <section id="notebook" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">03 // THOUGHTS &amp; MUSINGS</div>
+        <h2 class="section-title">The Notebook 📓</h2>
+        <p class="section-desc">
+          Honest observations, late-night questions, web aesthetics, and things scribbled down on receipts.
+        </p>
+      </div>
+
+      <div class="notebook-list" id="notebookContainer">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: THE GAME ROOM (Games, Reviews + Playable Mini-game) -->
+    <section id="game-room" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">04 // PLAY &amp; UNWIND</div>
+        <h2 class="section-title">The Game Room 🎮</h2>
+        <p class="section-desc">Stories explored through games, pixel memories, and an interactive micro-arcade.</p>
+      </div>
+
+      <!-- Featured Game: Firewatch -->
+      <div class="featured-game-card">
+        <div class="game-badge">Featured Favorite</div>
+        <div class="game-content-layout">
+          <div class="game-visual">
+            <div class="retro-screen firewatch-art">
+              <div class="firewatch-silhouette">
+                <div class="watchtower"></div>
+                <div class="pines"></div>
+                <div class="twilight-sun"></div>
+              </div>
+              <div class="screen-scanline"></div>
+            </div>
+            <div class="game-meta-tags">
+              <span class="tag">Narrative</span>
+              <span class="tag">Atmospheric</span>
+              <span class="tag">Campo Santo</span>
+            </div>
+          </div>
+          <div class="game-details">
+            <h3 class="game-title">Firewatch (2016)</h3>
+            <p class="game-quote">"People come out here to forget their problems. Sometimes they just bring them along."</p>
+            <p class="game-review">
+              There is a rare warmth in the lonely Wyoming wilderness. Henry and Delilah's radio conversations 
+              captured something profoundly human: grief, humor, escapism, and the realization that running away 
+              doesn't erase reality. The warm orange twilight aesthetic still stays with me whenever I design.
+            </p>
+            <div class="game-stats">
+              <div class="stat-item"><span class="stat-label">Hours Logged:</span> <span class="stat-val">18 hrs</span></div>
+              <div class="stat-item"><span class="stat-label">Mood:</span> <span class="stat-val">Campfire dusk</span></div>
+              <div class="stat-item"><span class="stat-label">Walkie-talkie banter:</span> <span class="stat-val">10/10</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Played Games List -->
+      <div class="game-favorites-list">
+        <h4 class="subheading">Other worlds I've wandered into</h4>
+        <div class="mini-games-grid" id="gamesLogGrid">
+          <!-- Populated from script.js -->
+        </div>
+      </div>
+
+      <!-- Playable Mini-Game: Cozy Memory Match -->
+      <div class="arcade-cabinet" id="miniGameSection">
+        <div class="cabinet-marquee">
+          <span class="blinking-coin">🪙</span>
+          <h3>Cozy Memory Match Mini-Game</h3>
+          <span class="blinking-coin">🪙</span>
+        </div>
+        <p class="arcade-instructions">
+          Match pairs of nostalgic icons before your moves run out! A quick break for your brain.
+        </p>
+
+        <div class="arcade-scoreboard">
+          <div class="score-pill">Moves: <span id="gameMoves" class="score-num">0</span></div>
+          <div class="score-pill">Pairs: <span id="gameMatches" class="score-num">0</span> / 6</div>
+          <div class="score-pill">Time: <span id="gameTimer" class="score-num">00:00</span></div>
+          <button id="resetGameBtn" class="arcade-action-btn">New Game ↺</button>
+        </div>
+
+        <div class="memory-grid" id="memoryGrid" role="grid" aria-label="Memory match cards">
+          <!-- Memory game cards dynamically built in script.js -->
+        </div>
+
+        <div id="gameWinBanner" class="game-win-banner hidden">
+          <div class="win-content">
+            <span class="win-emoji">🎉</span>
+            <h4>Level Cleared!</h4>
+            <p id="winSummary">You solved it in 14 moves!</p>
+            <button id="playAgainBtn" class="fun-btn">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE KITCHEN (Baking, Experiments & Notes) -->
+    <section id="kitchen" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">05 // FLOUR &amp; BUTTER</div>
+        <h2 class="section-title">The Kitchen 🥐</h2>
+        <p class="section-desc">
+          Pastry internship diaries, butter temperatures, dough laminations, and recipes that survived the oven.
+        </p>
+      </div>
+
+      <div class="kitchen-intro-banner">
+        <span class="kitchen-icon">🍞</span>
+        <div class="kitchen-intro-text">
+          <strong>The Golden Rule:</strong> Coding and baking are strangely identical—one missing semicolon or 
+          leaving butter at 24°C instead of 18°C, and the entire build collapses. Here are my trials and tastiest triumphs.
+        </div>
+      </div>
+
+      <div class="recipes-grid" id="kitchenGrid">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: DIGITAL GARDEN (Bookmarks, Rabbit Holes & Indie Web) -->
+    <section id="digital-garden" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">06 // CURATED LINKS</div>
+        <h2 class="section-title">Digital Garden 🌿</h2>
+        <p class="section-desc">
+          A personal collection of thoughtful websites, indie webrings, quirky tools, and internet rabbit holes.
+        </p>
+      </div>
+
+      <div class="digital-garden-intro">
+        <span>🌱</span> These are corners of the web that inspire me: low-tech experiments, independent writers, off-grid art, and digital craftspeople.
+      </div>
+
+      <div class="garden-grid" id="gardenGrid">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: GUESTBOOK (Interactive with honest LocalStorage & Email fallback) -->
+    <section id="guestbook" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">07 // SAY HELLO</div>
+        <h2 class="section-title">Guestbook 📖</h2>
+        <p class="section-desc">
+          Leave a note, stamp a sticker, or say hi from your corner of the globe.
+        </p>
+      </div>
+
+      <div class="guestbook-wrapper">
+        <!-- Composer Form -->
+        <div class="guestbook-composer-box">
+          <h3 class="guestbook-composer-title">Sign the Ledger ✍️</h3>
+          <div class="guestbook-limitation-note">
+            <strong>Honest Note:</strong> Because this website runs with zero tracking databases or bloated servers, 
+            entries left here are stored in your browser's local memory (they stay on your device whenever you visit!). 
+            To send your message straight to Junayed, tap <em>"Send via Email"</em> below!
+          </div>
+
+          <form id="guestbookForm" onsubmit="event.preventDefault();">
+            <div class="guestbook-form-group">
+              <label for="guestbookName" class="guestbook-label">Your Name / Nickname</label>
+              <input type="text" id="guestbookName" class="guestbook-input" placeholder="e.g. Sourdough Sam, Wanderer" maxlength="40" required>
+            </div>
+
+            <div class="guestbook-form-group">
+              <label for="guestbookMsg" class="guestbook-label">Message</label>
+              <textarea id="guestbookMsg" class="guestbook-textarea" placeholder="Leave a kind word, a book recommendation, or say hi..." maxlength="300" required></textarea>
+            </div>
+
+            <div class="guestbook-form-group">
+              <label class="guestbook-label">Choose a Stamp / Sticker</label>
+              <div class="sticker-selector" id="stickerSelector">
+                <button type="button" class="sticker-btn selected" data-sticker="🥐">🥐</button>
+                <button type="button" class="sticker-btn" data-sticker="☕">☕</button>
+                <button type="button" class="sticker-btn" data-sticker="🎮">🎮</button>
+                <button type="button" class="sticker-btn" data-sticker="🌿">🌿</button>
+                <button type="button" class="sticker-btn" data-sticker="✨">✨</button>
+                <button type="button" class="sticker-btn" data-sticker="🐾">🐾</button>
+              </div>
+            </div>
+
+            <div class="guestbook-form-actions">
+              <button type="submit" id="signGuestbookBtn" class="fun-btn">
+                <span>Sign Guestbook ✦</span>
+              </button>
+              <a href="mailto:haideradeeb@proton.me?subject=Guestbook%20Note%20for%20Junayed" id="guestbookEmailLink" class="email-alternative-btn">
+                ✉️ Send note directly to Junayed via Email
+              </a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Sticky Notes Wall -->
+        <div class="guestbook-wall">
+          <div class="guestbook-wall-title">Visitor Wall &bull; Notes &amp; Stickers</div>
+          <div class="guestbook-notes-container" id="guestbookNotesContainer">
+            <!-- Populated from LocalStorage + Starter notes in script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: USES (Tools, Software & Hardware) -->
+    <section id="uses" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">08 // GEAR &amp; SETUP</div>
+        <h2 class="section-title">Uses ⚙️</h2>
+        <p class="section-desc">
+          A living list of hardware, software, pastry equipment, and daily tools that power my workflow.
+        </p>
+      </div>
+
+      <div class="uses-grid" id="usesContainer">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: PROJECT LOG (Timeline) -->
+    <section id="project-log" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">09 // CHRONOLOGY</div>
+        <h2 class="section-title">Project Log 🪵</h2>
+        <p class="section-desc">
+          A chronological timeline of milestones, iterations, breakthroughs, and prototypes.
+        </p>
+      </div>
+
+      <div class="project-log-timeline" id="projectLogContainer">
+        <!-- Populated via script.js -->
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT (ONLY Email and Instagram as instructed) -->
+    <section id="contact" class="content-section">
+      <div class="section-heading">
+        <div class="section-prefix">10 // GET IN TOUCH</div>
+        <h2 class="section-title">Contact 📬</h2>
+        <p class="section-desc">
+          Got a project idea, a pastry recommendation, or just want to chat about code and games?
+        </p>
+      </div>
+
+      <div class="contact-container">
+        <p class="contact-intro-text">
+          I enjoy meeting curious folks from across the web. You can reach me directly through either of these two channels:
+        </p>
+
+        <div class="contact-methods-grid">
+          <!-- 1. Email (haideradeeb@proton.me) -->
+          <a href="mailto:haideradeeb@proton.me" class="contact-method-card" title="Send an email to Junayed">
+            <span class="contact-icon-large">✉️</span>
+            <span class="contact-label">Proton Mail</span>
+            <span class="contact-handle">haideradeeb@proton.me</span>
+            <span class="contact-cta-pill">Send an Email &rarr;</span>
+          </a>
+
+          <!-- 2. Instagram (@me.richb1tch) -->
+          <a href="https://www.instagram.com/me.richb1tch?vrfl=NjRqYnFtdGJpNDBi" target="_blank" rel="noopener noreferrer" class="contact-method-card" title="Visit Junayed's Instagram">
+            <span class="contact-icon-large">📸</span>
+            <span class="contact-label">Instagram</span>
+            <span class="contact-handle">@me.richb1tch</span>
+            <span class="contact-cta-pill">View Profile &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-logo">Junayed's Corner</div>
+          <p class="footer-subtext">Built with plain HTML, CSS, and JavaScript. No trackers, no bloat.</p>
+          <div class="copyright-text">&copy; <span id="currentYear"></span> Junayed. Hosted on the open web.</div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-nav-links">
+            <a href="#home">Back to top ↑</a>
+            <button class="text-link-btn" id="footerBoredBtn">Surprise me 🎲</button>
+            <button class="text-link-btn" id="easterEggHintBtn">Secret 🗝️</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- QUICK DIRECTORY POPUP DRAWER -->
+  <div class="directory-drawer" id="directoryDrawer" aria-hidden="true">
+    <div class="directory-drawer-header">
+      <span>Index Directory</span>
+      <button id="closeDrawerBtn" class="modal-close" style="position:static;font-size:1.1rem;">&times;</button>
+    </div>
+    <div class="directory-links-grid">
+      <a href="#home" class="directory-link">🏠 Home</a>
+      <a href="#now" class="directory-link">🧭 Now</a>
+      <a href="#workshop" class="directory-link">🔨 Workshop</a>
+      <a href="#notebook" class="directory-link">📓 Notebook</a>
+      <a href="#game-room" class="directory-link">🎮 Games</a>
+      <a href="#kitchen" class="directory-link">🥐 Kitchen</a>
+      <a href="#digital-garden" class="directory-link">🌿 Garden</a>
+      <a href="#guestbook" class="directory-link">📖 Guestbook</a>
+      <a href="#uses" class="directory-link">⚙️ Uses</a>
+      <a href="#project-log" class="directory-link">🪵 Log</a>
+      <a href="#contact" class="directory-link">📬 Contact</a>
+    </div>
+  </div>
+
+  <!-- FLOATING NAVIGATION DOCK -->
+  <div class="floating-dock-container">
+    <nav class="floating-dock" aria-label="Main navigation">
+      <a href="#home" class="dock-item active" data-section="home" title="Home">
+        <span class="dock-icon">🏠</span>
+        <span class="dock-label">Home</span>
+      </a>
+      <a href="#now" class="dock-item" data-section="now" title="Now">
+        <span class="dock-icon">🧭</span>
+        <span class="dock-label">Now</span>
+      </a>
+      <a href="#workshop" class="dock-item" data-section="workshop" title="Workshop">
+        <span class="dock-icon">🔨</span>
+        <span class="dock-label">Code</span>
+      </a>
+      <a href="#notebook" class="dock-item" data-section="notebook" title="Notebook">
+        <span class="dock-icon">📓</span>
+        <span class="dock-label">Notes</span>
+      </a>
+      <a href="#game-room" class="dock-item" data-section="game-room" title="Game Room">
+        <span class="dock-icon">🎮</span>
+        <span class="dock-label">Games</span>
+      </a>
+      <a href="#kitchen" class="dock-item" data-section="kitchen" title="Kitchen">
+        <span class="dock-icon">🥐</span>
+        <span class="dock-label">Kitchen</span>
+      </a>
+      <a href="#digital-garden" class="dock-item" data-section="digital-garden" title="Digital Garden">
+        <span class="dock-icon">🌿</span>
+        <span class="dock-label">Garden</span>
+      </a>
+      <a href="#guestbook" class="dock-item" data-section="guestbook" title="Guestbook">
+        <span class="dock-icon">📖</span>
+        <span class="dock-label">Guestbook</span>
+      </a>
+      <a href="#uses" class="dock-item" data-section="uses" title="Uses">
+        <span class="dock-icon">⚙️</span>
+        <span class="dock-label">Uses</span>
+      </a>
+      <a href="#project-log" class="dock-item" data-section="project-log" title="Project Log">
+        <span class="dock-icon">🪵</span>
+        <span class="dock-label">Log</span>
+      </a>
+      <a href="#contact" class="dock-item" data-section="contact" title="Contact">
+        <span class="dock-icon">📬</span>
+        <span class="dock-label">Contact</span>
+      </a>
+    </nav>
+    <button id="toggleDrawerBtn" class="dock-directory-btn" title="View all sections directory" aria-label="Open navigation index">📑</button>
+  </div>
+
+  <!-- DESKTOP PET: MOCHI -->
+  <aside id="mochiPet" class="mochi-pet" aria-label="Mochi the cozy desktop pet">
+    <div class="mochi-speech-bubble" id="mochiBubble">
+      <span id="mochiMessage">purr... welcome!</span>
+    </div>
+
+    <!-- Interactive Mochi SVG Avatar with eyes, blush, and animations -->
+    <div class="mochi-body-container" id="mochiInteractiveArea" title="Click me to interact!">
+      <div class="mochi-accessory" id="mochiAccessory">✨</div>
+      <svg class="mochi-svg" viewBox="0 0 100 80" width="80" height="64" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ears -->
+        <polygon class="mochi-ear ear-left" points="20,25 28,2 38,22" />
+        <polygon class="mochi-ear ear-right" points="80,25 72,2 62,22" />
+        <polygon class="mochi-ear-inner" points="23,22 29,6 36,20" />
+        <polygon class="mochi-ear-inner" points="77,22 71,6 64,20" />
+        
+        <!-- Main Mochi Squishy Body -->
+        <ellipse class="mochi-main-body" cx="50" cy="46" rx="42" ry="30" />
+        
+        <!-- Cheeks -->
+        <circle class="mochi-blush" cx="24" cy="52" r="5" />
+        <circle class="mochi-blush" cx="76" cy="52" r="5" />
+        
+        <!-- Eyes (Dynamic states in CSS/JS) -->
+        <g class="mochi-eyes" id="mochiEyes">
+          <ellipse class="eye eye-left" cx="36" cy="45" rx="3.5" ry="4.5" />
+          <ellipse class="eye eye-right" cx="64" cy="45" rx="3.5" ry="4.5" />
+          <circle class="eye-shine" cx="37" cy="43" r="1.5" />
+          <circle class="eye-shine" cx="65" cy="43" r="1.5" />
+        </g>
+        
+        <!-- Nose & Mouth -->
+        <path class="mochi-mouth" d="M 46 50 Q 50 53 54 50" />
+        
+        <!-- Tiny Paws -->
+        <ellipse class="mochi-paw paw-left" cx="35" cy="72" rx="7" ry="4" />
+        <ellipse class="mochi-paw paw-right" cx="65" cy="72" rx="7" ry="4" />
+      </svg>
+    </div>
+
+    <!-- Mochi Control Bar (Expandable or compact) -->
+    <div class="mochi-controls" id="mochiControls">
+      <button class="mochi-btn" id="feedMochiBtn" title="Feed Mochi a snack">🥐 Snack</button>
+      <button class="mochi-btn" id="petMochiBtn" title="Give Mochi a pat">✨ Pet</button>
+      <button class="mochi-btn" id="sleepMochiBtn" title="Let Mochi nap">💤 Nap</button>
+      <button class="mochi-btn" id="toggleMochiControls" title="Hide/Show buttons">×</button>
+    </div>
+  </aside>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div id="toastNotification" class="toast-notification hidden" role="alert" aria-live="polite">
+    <span class="toast-icon">✨</span>
+    <span class="toast-message" id="toastMessage">Hello!</span>
+  </div>
+
+  <!-- EASTER EGG MODAL -->
+  <div id="easterEggModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-badge">✨ You found the Secret Chamber!</div>
+      <h3 id="modalTitle">The Midnight Baker's Terminal</h3>
+      <p class="modal-body-text">
+        Legend says that at 2:00 AM, the best ideas and the fluffiest milk breads are born simultaneously.
+        You discovered the hidden nook of Junayed's site!
+      </p>
+      
+      <div class="secret-terminal-box">
+        <p class="term-line">&gt; visitor.unlocked("curiosity_badge");</p>
+        <p class="term-line">&gt; coffee_level: [||||||||||] 100%</p>
+        <p class="term-line">&gt; mochi.mood = "super_happy";</p>
+        <p class="term-line success">&gt; Easter egg unlocked! You've received the Cozy Explorer Star ✦</p>
+      </div>
+
+      <div class="modal-actions">
+        <button id="secretSoundBtn" class="fun-btn">Play 8-Bit Melody 🎵</button>
+        <button id="closeModalActionBtn" class="arcade-action-btn">Return to Site</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
